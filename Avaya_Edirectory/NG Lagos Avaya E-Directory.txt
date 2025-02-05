@@ -1,0 +1,121 @@
+- HomePage:
+    Control: Screen
+    Properties:
+      BackgroundImage: =iom_back2
+      ImagePosition: =ImagePosition.Center
+    Children:
+    - Button_Clr_2:
+        Control: Classic/Button
+        Properties:
+          OnSelect: =If(User().FullName = "ABJ_AUTMAIL_SVC Service Account", Notify("Not authorized", NotificationType.Error, 3000),Navigate(Screen1_AdminPage, ScreenTransition.Fade));
+          Text: ="Admin"
+          Size: =12
+          Visible: =If(User().Email="abj_autmail_svc@iom.int",true,false)
+          X: =1105
+          Y: =90
+    - Label_Avaya_CpyRgh:
+        Control: Label
+        Properties:
+          Text: =Char(169)&" "&Text(Year(Today()))
+          Color: =RGBA(255, 255, 255, 1)
+          FontWeight: =FontWeight.Bold
+          Height: =41
+          Width: =83
+          X: =70
+          Y: =710
+    - Button_Clr:
+        Control: Classic/Button
+        Properties:
+          OnSelect: =Reset(ComboBox_SearchName)
+          Text: ="Clear"
+          Size: =12
+          X: =1039
+          Y: =353
+    - Label_Msg_No_Ext:
+        Control: Label
+        Properties:
+          Text: =LookUp(NG_LagStaff_AvayaExt, Fullname = ComboBox_SearchName.Selected.Fullname, If(IsBlank(Extension),"No extension assigned"," "))
+          Align: =Align.Center
+          Color: =RGBA(255, 255, 255, 1)
+          FontWeight: =FontWeight.Bold
+          Height: =57
+          Size: =15
+          Width: =387
+          X: =636
+          Y: =521
+    - Label_ForSupport:
+        Control: Label
+        Properties:
+          Text: |-
+            ="For support contact: support-ict@iom.int"
+          Color: =RGBA(56, 96, 178, 1)
+          Fill: =RGBA(241, 244, 249, 1)
+          FontWeight: =FontWeight.Bold
+          Height: =29
+          Italic: =true
+          Size: =15
+          Width: =394
+          X: =904
+          Y: =722
+    - Image_Avaya:
+        Control: Image
+        Properties:
+          Image: =Avaya_Image
+          Height: =766
+          Width: =579
+    - Label_LagosTitle:
+        Control: Label
+        Properties:
+          Text: ="LAGOS SubOffice"
+          Align: =Align.Center
+          Color: =RGBA(56, 96, 178, 1)
+          Fill: =RGBA(204, 231, 246, 1)
+          FontWeight: =FontWeight.Bold
+          Size: =20
+          Width: =328
+          X: =636
+          Y: =216
+    - Label_Ext_Display_Numba:
+        Control: Label
+        Properties:
+          Text: =LookUp(NG_LagStaff_AvayaExt, Fullname = ComboBox_SearchName.Selected.Fullname, Extension)
+          Align: =Align.Center
+          Color: =RGBA(255, 255, 255, 1)
+          FontWeight: =FontWeight.Bold
+          Height: =69
+          Size: =50
+          Width: =387
+          X: =636
+          Y: =414
+    - ComboBox_SearchName:
+        Control: Classic/ComboBox
+        Properties:
+          AccessibleLabel: =
+          DisplayFields: =["field_4"]
+          InputTextPlaceholder: ="Enter staff or unit name"
+          Items: =NG_LagStaff_AvayaExt.Fullname
+          Reset: =true
+          SearchFields: =["field_4"]
+          SelectMultiple: =false
+          ChevronDisabledFill: =RGBA(56, 96, 178, 1)
+          FontWeight: =FontWeight.Bold
+          HoverFill: =RGBA(255, 255, 255, 1)
+          Size: =15
+          Width: =387
+          X: =636
+          Y: =353
+    - Label_Message:
+        Control: Label
+        Properties:
+          Text: ="Type or scroll to the staff name or unit name below to reveal Avaya extension number assigned."
+          Color: =RGBA(56, 96, 178, 1)
+          Fill: =RGBA(241, 244, 249, 1)
+          FontWeight: =FontWeight.Bold
+          Height: =66
+          Size: =15
+          Width: =563
+          X: =636
+          Y: =271
+		  
+		  
+		 

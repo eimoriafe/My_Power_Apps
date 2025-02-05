@@ -1,0 +1,60 @@
+ - Screen1_AdminPage:
+    Control: Screen
+    Properties:
+      BackgroundImage: =iom_back2
+      ImagePosition: =ImagePosition.Center
+    Children:
+    - Icon1Back2Home:
+        Control: Classic/Icon
+        Variant: BackArrow
+        Properties:
+          OnSelect: =Navigate(HomePage, Transition.None)
+          AccessibleLabel: =
+          Color: =RGBA(255, 255, 255, 1)
+          Icon: =Icon.BackArrow
+          X: =1227
+          Y: =35
+    - Label_ForSupport_1:
+        Control: Label
+        Properties:
+          Text: |-
+            ="For support contact: support-ict@iom.int"
+          Color: =RGBA(56, 96, 178, 1)
+          Fill: =RGBA(241, 244, 249, 1)
+          FontWeight: =FontWeight.Bold
+          Height: =31
+          Italic: =true
+          Size: =11
+          Width: =294
+          X: =984
+          Y: =696
+    - Label_Avaya_CpyRgh_1:
+        Control: Label
+        Properties:
+          Text: =Char(169)&" "&Text(Year(Today()))
+          Color: =RGBA(255, 255, 255, 1)
+          FontWeight: =FontWeight.Bold
+          Height: =31
+          Width: =83
+          X: =80
+          Y: =696
+    - Label_LagosTitle_1:
+        Control: Label
+        Properties:
+          Text: ="LAGOS SubOffice"
+          Align: =Align.Center
+          Color: =RGBA(56, 96, 178, 1)
+          Fill: =RGBA(204, 231, 246, 1)
+          FontWeight: =FontWeight.Bold
+          Size: =20
+          Width: =328
+          X: =579
+          Y: =99
+    - Image_Avaya_1:
+        Control: Image
+        Properties:
+          Image: =Avaya_Image
+          Height: =698
+          Width: =510
+          X: =69
+          Y: =29
